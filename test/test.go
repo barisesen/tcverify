@@ -10,8 +10,8 @@ func main() {
 	fmt.Println(resp, err)
 
 	tc := "xxxxxxxxxxx"
-	name := "BARIŞ"
-	surname := "ESEN"
+	name := "Barış"
+	surname := "esen"
 	date := "1996"
 
 	resp, err = tcverify.Check(tc, name, surname, date)

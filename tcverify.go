@@ -6,6 +6,8 @@ import (
 	"errors"
 	"net/http"
 	"strconv"
+	"strings"
+	"unicode"
 
 	"github.com/hakanersu/tcvalidate"
 )
@@ -29,8 +31,8 @@ func Check(ID string, name string, surname string, birthYear string) (bool, erro
 			<soap:Body>
 				<TCKimlikNoDogrula xmlns="http://tckimlik.nvi.gov.tr/WS">
 					<TCKimlikNo>` + ID + `</TCKimlikNo>
-					<Ad>` + name + `</Ad>
-					<Soyad>` + surname + `</Soyad>
+					<Ad>` + strings.ToUpperSpecial(unicode.TurkishCase, name) + `</Ad>
+					<Soyad>` + strings.ToUpperSpecial(unicode.TurkishCase, surname) + `</Soyad>
 					<DogumYili>` + birthYear + `</DogumYili>
 				</TCKimlikNoDogrula>
 			</soap:Body>
